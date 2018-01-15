@@ -2,38 +2,19 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Welcome</title>
+        <title>Welcome!</title>
         <link rel="stylesheet" href="css/style.css">
         <link rel="stylesheet" href="css/jquery.terminal-1.11.3.css">
     </head>
     <body>
-        <header>
-            <div class="header-content">
-                <h1>Header title</h1>
-            </div>
-            <nav id="header-navigation">
-                <ul>
-                    <li><a href="sticky-header">Sticky Header</a></li>
-                    <li><a href="#">Products</a></li>
-                    <li><a href="#">Contact</a></li>
-                <ul>
-            </nav>
-        </header>
-        <section class="content">
-            <article>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            </article>
-        </section>
-
-        <div id="term_demo"></div>
+        <div id="term"></div>
 
         <script src="js/jquery-3.2.1.min.js"></script>
         <script src="js/jquery.terminal-1.11.3.min.js"></script>
         
-
         <script>
             jQuery(function($, undefined) {
-                $('#term_demo').terminal(function(command) {
+                $('#term').terminal(function(command) {
                     if (command !== '') {
                         try {
                             var result = window.eval(command);
