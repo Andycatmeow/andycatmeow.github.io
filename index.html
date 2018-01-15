@@ -4,6 +4,7 @@
         <meta charset="UTF-8">
         <title>Welcome</title>
         <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/jquery.terminal-1.11.3.min.css">
     </head>
     <body>
         <header>
@@ -33,5 +34,35 @@
                 <p>Pellentesque aliquet lacinia metus ut venenatis. Aliquam a justo consequat, hendrerit justo non, pharetra massa. Etiam commodo cursus nisi id faucibus. Duis id elit venenatis, cursus turpis pharetra, sagittis ligula. Suspendisse maximus diam eu mauris posuere pulvinar. Praesent imperdiet risus ut mauris vestibulum, eu ultrices nulla tempus. Ut ac tincidunt nisl, eu gravida erat. Donec augue nibh, porta a leo sed, convallis ornare est. Mauris interdum malesuada orci, eget tempus sem consectetur vel.</p>
             </article>
         </section>
+
+        <div id="term_demo"></div>
+
+        <script src="js/jquery-3.2.1.min.js"></script>
+        <script src="js/jquery.terminal-1.11.3.min.js"></script>
+        
+
+        <script>
+            jQuery(function($, undefined) {
+                $('#term_demo').terminal(function(command) {
+                    if (command !== '') {
+                        try {
+                            var result = window.eval(command);
+                            if (result !== undefined) {
+                                this.echo(new String(result));
+                            }
+                        } catch(e) {
+                            this.error(new String(e));
+                        }
+                    } else {
+                    this.echo('');
+                    }
+                }, {
+                    greetings: 'Javascript Interpreter',
+                    name: 'js_demo',
+                    height: 200,
+                    prompt: 'js> '
+                });
+            });
+        </script>
     </body>
 </html>
